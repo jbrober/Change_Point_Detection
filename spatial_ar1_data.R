@@ -6,6 +6,7 @@
 #' Author: Yi Huang 
 #'
 #' Data Authored: 11/28/2024
+#' Edited 11/29/2024 by James Robertson
 #'---------------------------------------------------------------------------------------------------------
 
 library(MASS)
@@ -109,9 +110,9 @@ gen_one_change_point_data <- function(S, TT, theta1, theta2, change_point_ratio 
 #' @param change_point_ratio
 #' @param n=S*TT=135 # Note sample size n
 #'---------------------------------------------------------------------------------------------------------
-
+if (samp=='small') {
 # simple size 60
-set.seed(1128)
+# set.seed(1128)
 
 S <- 2^2                  # Number of spatial locations (e.g., 6x6 grid)
 TT <- 15                  # Total temporal length, 15 time points
@@ -131,11 +132,10 @@ data1 <- data.frame(
   value = as.vector(y)
 )
 
-save(data1, file = "data_n60.RData")
-
-
+# save(data1, file = "data_n60.RData")
+} else {
 # simple size 135
-set.seed(1128)
+# set.seed(1128)
 
 S <- 3^2                  # Number of spatial locations (e.g., 6x6 grid)
 TT <- 15                  # Total temporal length, 15 time points
@@ -155,6 +155,6 @@ data2 <- data.frame(
   value = as.vector(y)
 )
 
-save(data1, file = "data_n135.RData")
-
+# save(data1, file = "data_n135.RData")
+}
 
