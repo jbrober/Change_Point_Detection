@@ -110,11 +110,12 @@ gen_one_change_point_data <- function(S, TT, theta1, theta2, change_point_ratio 
 #' @param n=S*TT=135 # Note sample size n
 #'---------------------------------------------------------------------------------------------------------
 
+if (smalSamp) {
 # simple size 60
-set.seed(1128)
+# set.seed(1128)
 
 S <- 2^2                  # Number of spatial locations (e.g., 6x6 grid)
-TT <- 15                  # Total temporal length, 15 time points
+TT <- 20                  # Total temporal length, 15 time points
 theta1 <- c(-0.4, 0.5, 1) # Parameters for first segment
 theta2 <- c(-0.2, 0.6, 1) # Parameters for second segment (post-change)
 change_point_ratio <- 0.5 # Change occurs at 50% of the time
@@ -131,14 +132,14 @@ data1 <- data.frame(
   value = as.vector(y)
 )
 
-save(data1, file = "data_n60.RData")
-
+# save(data1, file = "data_n60.RData")
+} else {
 
 # simple size 135
-set.seed(1128)
+# set.seed(1128)
 
 S <- 3^2                  # Number of spatial locations (e.g., 6x6 grid)
-TT <- 15                  # Total temporal length, 15 time points
+TT <- 20                  # Total temporal length, 15 time points
 theta1 <- c(-0.4, 0.5, 1) # Parameters for first segment
 theta2 <- c(-0.2, 0.6, 1) # Parameters for second segment (post-change)
 change_point_ratio <- 0.5 # Change occurs at 50% of the time
@@ -155,6 +156,6 @@ data2 <- data.frame(
   value = as.vector(y)
 )
 
-save(data1, file = "data_n135.RData")
-
+# save(data1, file = "data_n135.RData")
+}
 
